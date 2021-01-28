@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CosmicCom - Connecting Worlds</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic|Orbitron' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/dark_space_ld30.css" />	
+</head>
+<body>
+
+	<header>
+		<span class="title">CosmicCom</span>
+		<span class="tm">TM</span>
+		<span class="subtitle">Connecting Worlds</span>
+	</header>
+
+	
+	<section class="planets">
+		<div>
+			Planets
+		</div>
+		<div class="planetCount val">##</div>
+		<ol class="planetList">
+			<li>{{ Planets go here }}
+		</ol>
+		<button type="button" class="closePlanets">Close</button>
+	</section>
+	
+	<section class="galacticBox">
+		<div class="block">
+			<div class="h">Galactic Satellites</div>
+			<div class="totalSatellites val">####</div>
+		</div>		
+		<div class="block">
+			<div class="h">Galactic Customers</div>
+			<div class="totalCustomers val">################</div>
+		</div>
+		<div class="block">
+			<div class="h">Profit per second</div>
+			<div class="totalProfitPerSecond val">#########</div>
+		</div>		
+		<div class="block moneyBlock">
+			<div class="h">Money</div>
+			<div class="money val importantVal">################</div>
+			<div class="units">galactic credits (gc)</div>
+		</div>
+
+	</section>
+	
+	<section class="planetBox">
+
+		<div class="planet"></div>
+		
+		<div class="planetDetails block">
+			<div class="h">Planet: Alpha</div>
+			<div>Population</div>
+			<div class="planetPopulation val">##########</div>
+		</div>
+	</section>
+	
+	<section>	
+		<div class="satellites block clickable">
+			<div class="h">Satellites</div>
+			<div class="planetSatellites val importantVal">###</div>
+			<!---
+			<div>Capacity:</div>
+			<div class="planetCapacity val">###</div>
+			--->
+			<div>Build Status</div>
+			<span class="planetSatBuildPercent val importantVal">###</span>
+			<span class="percent">%</span>
+			<div>
+				Click to build +<span class="buildPerClick">?</span>%
+				(<span class="planetSatCost val">#####</span> gc)
+			</div>
+		</div>
+
+		<div class="customers block clickable">
+			<div class="h">Planet Customers</div>
+			<div class="planetCustomers val importantVal">##########</div>
+			<span class="planetCustomersPercent val">###</span>
+			<span class="percent">%</span>
+			<!---
+			<div>Retention</div>
+			<div>75%</div>
+			--->
+			<div>
+				Click to acquire +<span class="acquirePerClick">?</span>
+				new customers
+			</div>
+		</div>
+		
+		<div class="ship block clickable">
+			<div class="h">CosmicCom Mothership</div>
+			<div>Fuel: <span class="fuel val importantVal">###</span>
+				<span class="percent">%</span>
+			</div>
+			<div class="fuelDirections">
+				Click to refuel (<span class="planetFuelCost val">####</span> gc)
+			</div>
+			<div class="flyDirections">
+				Click to travel
+			</div>
+		</div>
+
+		<div class="engineers block upgrade clickable">
+			<div class="h">Engineers</div>
+			<div class="engineerUpgrades val importantVal">##</div>
+			<div class="direction">
+				Click to buy<br />
+				(<span class="engineerUpgradeCost val">####</span> gc)
+			</div>
+		</div>
+		
+		<div class="marketing block upgrade clickable">
+			<div class="h">Marketing</div>
+			<div class="marketingUpgrades val importantVal">##</div>
+			<div class="direction">
+				Click to buy<br />
+				(<span class="marketingUpgradeCost val">####</span> gc)
+			</div>
+		</div>
+		
+	</section>
+
+	
+
+<script src="js/libs/jquery-1.11.1.min.js"></script>
+<script src="js/dice.js"></script>
+<script src="js/game_loop.js"></script>
+<script src="js/sound_cannon.js"></script>
+<script src="js/coz_ld30.js"></script>
+
+	
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-7118348-1', 'deathraygames.com');
+  ga('send', 'pageview');
+</script>
+
+
+	
+</body>
+</html>

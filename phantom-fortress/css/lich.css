@@ -1,0 +1,784 @@
+html {
+	min-height: 100%;
+    margin: 0;
+    width: 100%;
+    height: auto;
+	background-color: #666;
+}
+body {
+	font-family: 'Arial', sans-serif;
+}
+
+button {
+    outline: none;
+	display: inline-block;
+	padding: 0.5em 1em;
+	/* background-color: #999; */
+	color: black;
+	background-color: rgba(200,200,255,0.9);
+	border: solid 0.25em rgba(200,200,255,0.9);
+	box-shadow: 0 0.25em 0 black, inset 0 0 0.25em rgba(0,0,0,0.2), 0 0.25em 0.5em rgba(0,0,0,0.2);
+	border-radius: 0.25em;
+	cursor: pointer;
+	font-size: 120%;
+	font-family: 'Share Tech', sans-serif;
+}
+button:hover {
+	background-color: rgba(200,200,255,1);
+	border-color: rgba(200,200,255,1);
+}
+button.NA {
+	opacity: 0.25;
+}
+
+h1, h2 {
+	font-family: 'Original Surfer', cursive;
+}
+h1 {
+	font-size: 2em;
+}
+
+.blockList {
+	display: block;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.clear {	clear: both; }
+
+/* =========== Header / Menus ============ */
+
+header {
+	display: none;
+	position: absolute; z-index: 20;
+	top: 3em; left: 10%;
+}
+	header h1 {
+		margin: 0; padding: 0.25em 0;
+		
+		font-size: 68px;
+		color: rgba(255,255,255,0.2);
+		text-shadow: 0 0 0.5em #333366;
+	}
+	header .subTitle {
+		margin-top: -1.2em;
+		font-size: 150%;
+		font-family: 'Original Surfer', cursive;
+		text-align: center;
+		float: right;	
+		color: #333366;
+	}	
+
+#controls {
+	display: none;
+	position: fixed; z-index: 20;
+	left: 0; top: 0;
+	/* height: 3em; */
+	width: 100%;
+	/* background-color: rgba(200,200,255,0.6); */
+	background-color: rgba(51,51,102,0.75); /* #333366; */
+	font-family: 'Share Tech', sans-serif;
+	
+	/* text-shadow: -1px -1px 0 rgba(255,255,255,0.2), 0 0 0.2em rgba(255,255,255,0.2); */
+}
+	#currency {
+		display: block;
+		font-size: 120%;
+		padding-right: 7em;
+	}
+	#currency ul {
+		display: block;
+		padding: 0.5em;
+		margin: 0;
+		list-style: none;
+	}
+	#currency ul > li {
+		display: inline-block;
+		margin: 0 0.25em 0 0.5em;
+		padding: 0;
+	}
+		.currNum {
+			font-size: 32px;
+			color: #eee;
+			text-shadow: 1px 1px 0 black;
+		}
+		.goldNum {	color: #EDE4AB; }
+		.soulsNum { color: #CF83EE; }
+		.arcaneNum { color: #9CAAA8; }
+		.stoneNum {	color: #767676; }
+		.oreNum {	color: #A95641; }
+		.floorNum { color: #aaa; }
+		.currencyIcon {
+			display: inline-block;
+			position: relative;
+			margin: 0 1em;
+			width: 32px; height: 32px;
+			background-position: center center;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			text-align: center;
+			color: transparent;
+			vertical-align: top;
+		}
+		.icon_gold {		background-image: url('../images/icon_gold_32.png'); }
+		.icon_souls {	background-image: url('../images/icon_souls_32.png'); }
+		.icon_stone {	background-image: url('../images/icon_stone_32.png'); }
+		.icon_ore {		background-image: url('../images/icon_iron_32.png'); }
+		.icon_arcane {	background-image: url('../images/icon_scroll_32.png'); }		
+		.icon_floors {	background-image: url('../images/icon_tower_32.png'); }
+		.currencyIcon > span {
+			position: absolute;
+			bottom: 0; left: 0;
+			display: none;
+			color: black;
+			text-shadow: 0 0 0.15em white;
+		}
+		.currencyIcon:hover > span {
+			display: inline-block;
+			padding: 0.1em 0.5em;
+			background: rgba(255,255,255,0.5);
+			border-radius: 0.5em;
+		}
+		
+	#controls .openSettings {
+		display: block;
+		position: fixed;
+		top: 0.5em; right: 0.5em;
+		width: 2em; height: 2em;
+		padding: 1em;
+		color: transparent;
+		background-image: url('../images/icon_gear_160.png');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 2em 2em;
+	}
+	
+	#hand {
+		display: none;
+		position: absolute;
+		top: 0; right: 0;		
+		width: 90px; height: 90px;
+		border: solid 0.25em rgba(200,200,255,0.6);
+		background-color: #333;
+		box-shadow: inset 0 0 1em rgba(0,0,0,0.5);
+	}
+
+footer {
+	display: none;
+	position: fixed; z-index: 60;
+	bottom: 0;
+	width: 100%;
+	padding: 1em 0;
+	text-align: center;
+	color: #9999ff;
+	text-shadow: 0 0 1em #000;
+	font-family: 'Share Tech', sans-serif;
+	font-size: 120%;
+}
+footer a {
+	color: #9999ff;
+}
+
+
+/* ======== PopUp Menus ======== */
+	
+.popUp {
+	display: none;
+	box-sizing: border-box;
+	position: absolute; z-index: 100;
+	top: 64px; left: 0;
+	max-width: 92%; 
+	margin: 1% 1%;
+	padding: 1em;
+	border: solid 0.3em black;
+	border-radius: 1em;
+	box-shadow: inset 0 0 1em rgba(0,0,0,0.5)
+		, 0 0 2em black;
+	/*
+	background-color: rgba(200,200,255,0.9);
+	*/
+	background-color: /* #225 */ rgba(34,34,85,0.95);
+	color: white;
+}
+.popUp:after {
+	position: fixed;
+	top: 0; left: 0;
+	width: 10em; height: 10em;
+	background-color: rgba(255,0,0,0.9);
+}
+
+/* .closePopUp */
+.popUpX {
+	position: absolute; z-index: 101;
+	top: 0; right: 0;
+	font-size: 150%;
+	padding: 0.5em 1em;
+	margin: -0.25em -0.25em 0.25em 0.25em;
+	background: black;
+	color: white;
+	border: solid 2px black;
+	border-radius: 0.5em;
+	cursor: pointer;
+	font-family: arial;
+}
+.popUpX:hover { color: black; }
+
+
+.buyFloor {
+	display: block;
+	box-sizing: border-box;
+	padding: 1em 2em;
+	border-bottom: solid 1px rgba(0,0,0,0.5);
+	cursor: pointer;
+	overflow: auto;
+	width: 49%;
+	min-width: 14em;
+	float: left;
+}
+.buyFloor:nth-child(odd) {
+	clear: left;
+}
+/*
+.buyFloor:after {
+	content: "click to buy floor";
+} */
+	.buyFloor.canAfford:hover {
+		background-color: rgba(255,255,255,0.3);
+	}
+	.buyFloor.cannotAfford:hover {
+		background-color: rgba(50,0,0,0.4);
+	}
+	.buyFloor .floorName {
+		display: block;
+		margin: 0 1em 1em 0;
+		font-family: 'Original Surfer', cursive;
+		font-size: 120%;
+		float: left;
+		width: 50%;
+		min-width: 8em;
+	}
+	.buyFloor .currNum {
+		font-size: 120%;
+	}
+	.floorPreview {
+		width: 120px; height: 32px; 
+		float: right;
+	}
+	.buyFloor .cost {
+		display: block;
+		float: left;
+		clear: left;
+	}
+	.buyFloor.cannotAfford .currNum {
+		color: red;
+	}
+	.buyFloor.cannotAfford .floorPreview {
+		opacity: 0.5;
+	}
+
+.buyFloor .currencyIcon {
+
+}
+.buyFloor .floorDescription {
+	display: block;
+	clear: both;
+}
+
+/* === Floor Info === */
+
+#floorMenu {
+	
+	max-width: 600px;
+	margin-left: 10%;
+	text-align: center;
+}
+
+.floorSizeMenu {
+	max-width: 600px;
+	margin-top: 160px;
+}
+	.zoom1 .floorSizeMenu {		max-width: 450px; margin-top: 120px;}
+	.zoom2 .floorSizeMenu {		max-width: 300px; margin-top: 80px;	}
+	.zoom3 .floorSizeMenu {		max-width: 150px; margin-top: 40px;	}
+
+#floorMenu > div {
+	display: none;
+}
+
+#floorMenu .floorName {
+	margin: 0 0 1em 0;
+}
+#floorMenu .floorDescription {
+	margin: 1em 0;
+}
+
+	#floorMenu button:not(.closePopUp) {
+		display: inline-block;
+		width: 120px;
+		min-width: 120px;
+		height: 100px;
+		/* float: left; */
+		padding: 50px 0.5em 0 0.5em;
+		margin: 0 5% 0.5em 0;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 100px 100px;
+		line-height: 1em;		
+		color: white;
+		font-weight: bold;
+		text-shadow: 1px 1px 0 black, 0 0 0.25em black;
+	}
+	
+	#floorMenu button.buttonImportant { width: 40%; }
+	#floorMenu button.disabledButton { 
+		opacity: 0.5; 
+		border-color: transparent; 
+		background-color: rgba(80,80,80,0.5);
+		cursor: not-allowed;
+		box-shadow
+	}
+	
+	.buttonInfo {			background-image: url('../images/icon_info.png'); }
+	.buttonProduction {		background-image: url('../images/icon_hammer.png'); }
+	.buttonRebuild {		background-image: url('../images/icon_wrench.png'); }
+	.buttonWorker {			background-image: url('../images/icon_worker.png'); }
+	.buttonAddWorker {		background-image: url('../images/icon_add_worker.png'); }
+	.buttonRemoveWorker {	background-image: url('../images/icon_remove_worker.png'); }
+	.buttonCandleOn {		background-image: url('../images/icon_candle_on.png'); }
+	.buttonCandleOff {		background-image: url('../images/icon_candle_off.png'); }
+	
+.productionInfo, .workerInfo {
+	clear: both;
+}	
+
+.floorAvailability > ul {
+	padding: 0; margin: 0;
+}
+.emptyWorkerSpace {
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 1em 0;
+	width: 5em;
+	height: 5em;
+	margin: 0 1em 1em 0;
+	border: dashed 0.25em rgba(200,200,255,0.9);
+	background-color: rgba(255,255,255,0.1);
+	text-align: center;
+	box-shadow: inset 0 0 0.5em rgba(0,0,0,0.5);
+}
+/*
+.viewAssignWorker:after {
+	content: "click to add worker";
+}
+*/
+li.viewAssignWorker:hover {
+	background-color: rgba(255,255,255,0.25);
+}
+
+/* === Floor Builder === */
+
+#floorBuilder {
+	margin-left: 10%;
+	text-align: center;
+	padding-right: 4.5em;
+}
+#floorBuilder .cost {
+	margin: 1em 0 0 0;
+}
+/*
+#floorBuilder button {
+	padding: 1em;
+}
+*/
+#floorBuilder button.buildNewFloor {
+	background-position: center left;
+	background-repeat: no-repeat;
+	background-image: url('../images/icon_wrench.png');
+	background-size: 4em 4em;
+	padding: 1em 1em 1em 5em;
+}
+
+
+/* === Goon Buyer === */
+
+.buyGoon {
+	display: inline-block;
+	padding: 1em;
+	width: 10em;
+	height: 5em;
+	margin: 0 1em 1em 0;
+	border: solid 1px black;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-size: 5em 5em;
+}
+/*
+.buyGoon:after {
+	content: "click to buy goon worker";
+}
+*/
+.buyGoon:hover {
+	background-color: rgba(255,255,255,0.25);
+}
+
+.goonName {
+	display: block;
+	margin-bottom: 0.5em;
+	font-weight: bold;
+	font-family: 'Original Surfer', cursive;
+	font-size: 1.1em;
+	text-shadow: 1px 1px 0 black, 0 0 0.25em rgba(0,0,0,0.5);
+}
+
+.viewAssignWorker:after
+,.buyFloor:after
+,.buyGoon:after {
+	display: inline-block;
+	margin: 0.5em 1em;
+	float: right;
+	color: #aaa;
+	font-size: 80%;
+}
+
+#settings {
+	left: auto; right: 0;
+}
+
+.tips {
+	max-width: 20em;
+	font-family: 'Original Surfer', cursive;
+	font-size: 1.1em;
+}
+.tips li {
+	margin-bottom: 1em;
+}
+
+
+	
+/* ======== Tower ======== */
+	
+#tower, .towerLayer {
+	display: block;
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+}
+#tower {
+	overflow: hidden;
+}
+.towerLayer {
+	height: inherit;
+}
+	#sky {
+		background-color: #9999ff;
+		background: -webkit-linear-gradient(top, #333366, #9999ff) fixed;
+	}
+	
+	#ground {
+		top: 50%;
+		background-color: #161616;
+		background-repeat: repeat-x;
+		background-position: top left;
+		background-image: url('../images/ground_300.png');
+	}
+	.zoom1 #ground {	background-size: 125px; }
+	.zoom2 #ground {	background-size: 150px; }
+	.zoom3 #ground {	background-size: 75px; }
+
+	#floors {
+		width: 80%;
+		max-width: 600px;
+		height: auto;
+		left: 10%; top: 200px;
+		/* background-color: rgba(40,40,40,0.3); */
+	}
+	.zoom1 #floors {		max-width: 450px;	}
+	.zoom2 #floors {		max-width: 300px;	}
+	.zoom3 #floors {		max-width: 150px;	}
+	
+	#floors > div {
+		width: 100%;
+		/* min-width: 600px; */
+		height: 160px;
+		position: relative;
+		box-sizing: border-box;
+	}
+	.zoom1 #floors > div {		height: 120px;	}
+	.zoom2 #floors > div {		height: 80px;	}
+	.zoom3 #floors > div {		height: 40px;	}
+	
+	#floors > div.selected {
+		border: solid 0.2em white;
+		box-shadow: inset 0 0 2em white, 0 0 3em white;
+	}
+
+.floorTop
+,.floorBottom
+,.viewFloor
+,.viewAssignWorker
+,.buyGoon {
+	cursor: pointer;
+}
+
+.floorEdge {
+	font-size: 150%;
+	text-align: center;
+	font-family: 'Original Surfer', cursive;
+	color: rgba(255,255,255,0.0);
+	transition: all 0.4s ease-in-out;
+}
+.zoom1 .floorEdge {	font-size: 113%; }
+.zoom2 .floorEdge {	font-size: 75%; }
+.zoom3 .floorEdge {	font-size: 38%; }
+
+.floorEdge:hover {
+	/*
+	border: solid 1px rgba(255,255,0,0.5);
+	margin: -1px -1px -1px -1px;
+	*/
+	background-color: rgba(255,255,255,0.1);
+	box-shadow: 0 0 4em rgba(255,255,255,0.3);
+	text-shadow: 0 0 0.5em black;
+	color: rgba(255,255,255,0.75);
+}
+.floorTop {
+	line-height: 3em; /* 80px; */
+}
+.floorBottom {
+	line-height: 5em; /* 120px; */
+}
+
+.floor, .floorTop, .floorBottom, .floorPreview {
+	background-position: center center;
+	background-size: 100% 100%;
+}
+
+
+.floor {
+	font-family: 'Original Surfer', cursive;
+}
+.floor .floorName {
+	padding: 0.5em 1em;
+	display: inline-block;
+	font-size: 150%;
+	color: white;
+	text-shadow: 0 0 0.5em black, 1px 1px 0 black;
+	opacity: 0;
+	transition: all 1s ease-in-out;
+}
+.floor:hover .floorName {
+	opacity: 1;
+}
+
+.floorTop {			background-image: url('../images/floor_top.png'); }
+.floorBottom {		background-image: url('../images/floor_bottom.png'); }
+
+.floor_Base {		background-image: url('../images/floor_base.png'); }
+.floor_Mine {		background-image: url('../images/floor_mine.png'); }
+.floor_Shipping {	background-image: url('../images/floor_boxes_stacked.png'); }
+.floor_Trading {	background-image: url('../images/floor_boxes.png'); }
+.floor_Traps {		background-image: url('../images/floor_plain.png'); }
+.floor_Experiment {	background-image: url('../images/floor_experiment.png'); }
+.floor_Library {	background-image: url('../images/floor_library.png'); }
+.floor_Storage {	background-image: url('../images/floor_boxes.png'); }
+.floor_Telescope {	background-image: url('../images/floor_telescope.png'); }
+.floor_Portal {		background-image: url('../images/floor_portal.png'); }
+.floor_Crypt {		background-image: url('../images/floor_crypt.png'); }
+.floor_Empty {		background-image: url('../images/floor_empty.png'); }
+.floor_Tunnel {		background-image: url('../images/floor_tunnel.png'); }
+
+.naturalResourcesIndicator {
+	position: absolute; 
+	bottom: 0.5em; left: -40px;
+	padding: 0;
+	font-family: 'Share Tech', sans-serif;
+	color: rgba(255,255,255,0.8);
+	/* opacity: 0.6; */
+}
+.naturalResourcesIndicator .currencyIcon {
+	display: block; 
+	padding: 0; margin: 0;
+}
+.zoom1 .naturalResourcesIndicator { font-size: 80%; left: -30px; }
+.zoom2 .naturalResourcesIndicator { font-size: 60%; left: -20px; }
+.zoom3 .naturalResourcesIndicator { font-size: 40%; left: -10px; }
+.zoom1 .naturalResourcesIndicator .currencyIcon {	width: 24px; height: 24px; }
+.zoom2 .naturalResourcesIndicator .currencyIcon {	width: 16px; height: 16px; }
+.zoom3 .naturalResourcesIndicator .currencyIcon {	width: 8px; height: 8px; }
+
+.nrNum {
+
+}
+
+
+/* ============== Characters ========== */
+
+.goon, .invader {
+	display: block;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	bottom: 0;
+	left: -5000px;
+	text-align: center;
+	color: transparent;
+	/* transition: all 0.5s ease-in-out; */
+	/* background-color: rgba(255,255,255,0.4); */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.zoom1 .goon, .zoom1 .invader {		width: 75px; height: 75px; }
+.zoom2 .goon, .zoom2 .invader {		width: 50px; height: 50px; }
+.zoom3 .goon, .zoom3 .invader {		width: 25px; height: 25px; }
+
+
+.goon:hover, .invader:hover {
+	/* color: white;
+	text-shadow: 0 0 0.1em black, 1px 1px 0 black;
+	*/
+	opacity: 0.95;
+}
+
+.goon_PhantomLord {
+	width: 140px;
+	height: 140px;
+	background-image: url('../images/phantom_170_left.png');
+}
+.zoom1 .goon_PhantomLord {		width: 105px; height: 105px; }
+.zoom2 .goon_PhantomLord {		width: 70px; height: 70px; }
+.zoom3 .goon_PhantomLord {		width: 35px; height: 35px; }
+
+.goon_PhantomLord.rightFacing {	background-image: url('../images/phantom_170_right.png'); }
+.goon_PhantomLord.dead {		background-image: url('../images/phantom_170_dead.png'); }
+.goon_Ghost {					background-image: url('../images/ghost_160_left.png'); }
+.goon_Ghost.rightFacing {		background-image: url('../images/ghost_160_right.png'); }
+.goon_Ghost.dead {				background-image: url('../images/ghost_160_dead.png'); }
+.goon_Orc {						background-image: url('../images/orc_160_left.png'); }
+.goon_Orc.rightFacing {			background-image: url('../images/orc_160_right.png'); }
+.goon_Orc.dead {				background-image: url('../images/orc_160_dead.png'); }
+.goon_PoisonGhost {				background-image: url('../images/poisonghost_160_left.png'); }
+.goon_PoisonGhost.rightFacing {	background-image: url('../images/poisonghost_160_right.png'); }
+.goon_PoisonGhost.dead {		background-image: url('../images/ghost_160_dead.png'); }
+.goon_DeepOrc {					background-image: url('../images/deeporc_160_left.png'); }
+.goon_DeepOrc.rightFacing {		background-image: url('../images/deeporc_160_right.png'); }
+.goon_DeepOrc.dead {			background-image: url('../images/orc_160_dead.png'); }
+.goon_GhoulBat {				background-image: url('../images/ghoulbat_160_left.png'); }
+.goon_GhoulBat.rightFacing {	background-image: url('../images/ghoulbat_160_right.png'); }
+.goon_GhoulBat.dead {			background-image: url('../images/ghoulbat_160_dead.png'); }
+.goon_WizardEye {				background-image: url('../images/wizardeye_160_left.png'); }
+.goon_WizardEye.rightFacing {	background-image: url('../images/wizardeye_160_right.png'); }
+.goon_WizardEye.dead {			background-image: url('../images/wizardeye_160_dead.png'); }
+
+.invader_Knight {				background-image: url('../images/knight_160_left.png'); }
+.invader_Knight.rightFacing {	background-image: url('../images/knight_160_right.png'); }
+.invader_Knight.dead {			background-image: url('../images/knight_160_dead.png'); }
+.invader_Cleric {				background-image: url('../images/cleric_160_left.png'); }
+.invader_Cleric.rightFacing {	background-image: url('../images/cleric_160_right.png'); }
+.invader_Cleric.dead {			background-image: url('../images/cleric_160_dead.png'); }
+.invader_Hierophant {				background-image: url('../images/hierophant_160_left.png'); }
+.invader_Hierophant.rightFacing {	background-image: url('../images/hierophant_160_right.png'); }
+.invader_Hierophant.dead {			background-image: url('../images/hierophant_160_dead.png'); }
+
+.damage {
+	position: absolute;
+	width: 1em; height: 1em;
+	padding: 0.2em 0.4em;
+	background-color: red;
+	color: white;
+	text-align: center;
+	border-radius: 1em;
+	box-shadow: 0 0 1em red;
+}
+.goonDamage {
+	background-color: #313;
+	box-shadow: 0 0 1em #313;
+}
+
+.dead {
+	cursor: pointer;
+}
+.dead:not(.goon_PhantomLord) {
+	z-index: 30;
+}
+.dead:hover {
+	opacity: 0.8;
+}
+.decayed {
+	opacity: 0.5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Helpers */
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+/* === Media Queries for RESPONSIVE === */
+
+@media only screen and (max-height : 30em) {
+
+}
+
+@media only screen and (max-width : 1000px) {
+
+
+	
+}
+
+
+@media only screen and (max-width : 880px) {
+	#currency {
+		font-size: 80%;
+	}
+	#currency .currNum {	font-size: 32px;  }
+}
+
+@media only screen and (max-width : 730px) {
+	#currency {
+		font-size: 60%;
+	}
+	#currency .currNum {	font-size: 24px;  }
+	header h1 {	font-size: 50px; }
+}
+
+@media only screen and (max-width : 660px) {
+	#currency {
+		font-size: 20%;
+	}
+	#currency .currNum {	font-size: 16px;  }
+	header h1 {	font-size: 40px; margin-top: 1em; }
+	/* #floors {	top: 150px; } */
+}
+
+@media only screen and (max-width : 400px) {
+
+
+}
+

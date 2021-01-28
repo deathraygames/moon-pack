@@ -1,0 +1,99 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>StarDust.js - Space simulator game - A Universe in 13kb</title>
+	<link rel="stylesheet" href="stardust_style.css" />
+</head>
+<body>
+
+<!--- StarDust.js - aka. "Gravity Balls" 
+	Originally developed on jsfiddle: http://jsfiddle.net/luken/bhmxnpp7/
+--->
+<div id="sdcontainer">
+    <canvas id="s"></canvas>
+	<div id="splash">
+		<div class="title">StarDust<span>.js<span></div>
+        <div class="subtitle">A Universe in 13kb</div>
+		<p>
+			Press Any Key
+		</p>
+	</div>
+    <div id="intro" class="modal">
+        <div class="title">StarDust.js</div>
+        <div class="subtitle">A Universe in 13kb</div>
+        <blockquote>
+            "Every atom in your body came from a star that exploded... 
+            You are all stardust. ... 
+            The stars died so that you could be here today."
+            <br />- Lawrence Maxwell Krauss
+        </blockquote>
+        <p>
+            Story: You play a small, dense planetoid, recently born
+            from a dying star. Remarkably, you have the abilities
+            to propel yourself through space and create more stardust
+            at will.
+        </p>
+        <p>
+            Primary Goal: Enjoy the universe. 
+            Have fun doing whatever you
+            want in the galactic sandbox.
+            Secondary Goal: Develop life using the basic elements of this
+            universe: earth, water, air, and fire (heat).
+        </p>
+        <p>
+            How to Play:
+            Use w/a/s/d or arrow keys to move your planetoid
+            through space. Impacting other objects will
+            transfer earth/water/air to whichever object is
+            more massive. Try to only hit smaller objects,
+            and avoid contacting massive objects and suns.
+            <br />
+            Press [Space] to generate stardust around you.
+            Press [e] and [t] to toggle element
+            and temperature sensor readings, and [o]
+            to toggle object information. Press [h]
+            to return to this help screen and [p] to pause.
+			Press [F11] to go fullscreen.
+        </p>
+        <p>
+            <a href="#" id="enter">Hit [Enter] to Begin</a>
+        </p>
+        <p>
+            Made by Luke Nickerson for the 2014 js13k Coding 
+            Competition (<a href="http://js13kgames.com/" target="_blank">js13kgames.com</a>).
+            &copy; 2014
+            <br />
+            Twitter: 
+            <a href="https://twitter.com/deathraygames" target="_blank">@DeathrayGames</a>
+            <br />
+            Thanks to Elijah Carrick and Christina Rotondi
+            for help and support. 
+        </p>
+        <p class="ver">
+            version 1.0
+        </p>
+    </div>
+	<div id="gameover" class="modal">
+		<h1>Game Over</h1>
+		<p>
+			You have been destroyed! :(
+		</p>
+		<p>
+			Reload the page (F5) to start a new game.
+		</p>
+	</div>
+	<div id="victory" class="modal">
+		<h1>Life!</h1>
+		<p>
+			You've evolved life!
+			<br />You win!
+		</p>
+	</div>
+		
+</div>
+
+
+<script src="stardust.js"></script>
+</body>
+</html>

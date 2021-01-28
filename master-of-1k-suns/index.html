@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Master of a Thousand Suns</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/mo1ks-base.css" />
+	<link href='https://fonts.googleapis.com/css?family=Acme|Roboto+Mono|Voltaire|Amaranth|Spinnaker|Jockey+One|Share+Tech+Mono' rel='stylesheet' type='text/css'>
+	<!--
+	<link href="styles/font-contrail-one.css" rel="stylesheet" type="text/css">
+	-->
+
+	<link rel="icon" href="favicons/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+<header>
+	<h1>Master of <span class="suns">0001/</span><span class="1k">1000</span><span class="thousand">a Thousand</span> Suns</h1>
+	<span class="subtitle"></span>
+	<span class="version">v0.3.1 ALPHA</span>
+</header>
+
+
+<div id="booting-up-rocket-boots">
+	Loading...
+</div>
+
+<div class="state start">
+	<a href="#!/game" class="goto-state" data-goto="game">Start</a>
+</div>
+
+<div class="state game">
+	<nav class="tabs">
+		<a href="#!/" data-goto="explore">Explore</a>
+		<a href="#!/" data-goto="expand">Expand</a>
+		<a href="#!/" data-goto="exploit">Exploit</a>
+		<a href="#!/" data-goto="exterminate">Exterminate</a>
+		<a href="#!/" data-goto="game">///</a>
+	</nav>
+	<div class="tabs">
+		<div class="explore">
+			<ul>
+			<li><label>Systems Discovered</label> 			<span id="systemsDiscovered">*</span></li>
+			<li><label>Exploration</label> 					<span id="explorationRate">*</span> </li>
+			<li><label>Scout Ships</label> 					<span id="scoutShips">*</span></li>
+			<li><label>Scout Ship Construction</label> 	<span id="scoutShipConstruction">*</span>  
+				<!-- <span class="switch"><button type="button">Build</button><button type="button">Off</button></span> -->
+			</li>
+			</ul>
+		</div>
+		<div class="expand">
+			<ul>
+			<li><label>Systems Settled</label> 				<span id="systemsSettled">*</span></li>
+			<li><label>Colonization</label>					<span id="colonizationRate">*</span> </li>
+			<li><label>Colonial Ships</label> 				<span id="colonialShips">*</span></li>
+			<li><label>Colonial Ship Construction</label> 	<span id="colonialShipConstruction">*</span> </li>
+			</ul>
+		</div>
+		<div class="exploit">
+			<ul>
+			<li><label>Resources</label> 					<span id="resources">*</span></li>
+			<li><label>Resource Collectors</label> 			<span id="resourceCollectors">*</span></li>
+			<li><label>Constructor Fleet</label> 			<span id="constructorFleet">*</span></li>
+			<li><label>Constructor Ship Construction</label> 	<span id="constructorFleetConstruction">*</span> </li>
+			</ul>
+		</div>
+		<div class="exterminate">
+			<ul>
+			<li><label>Rival Systems</label> 				<span id="systemsRival">*</span></li></li>
+			<li><label>War</label> 							<span id="warRate">*</span></li></li>
+			<li><label>Battle Ships</label> 				<span id="battleShips">*</span></li></li>
+			<li><label>Battle Ship Construction</label> 	<span id="battleShipConstruction">*</span> </li>
+			</ul>
+		</div>
+		<div class="game">
+			<blockquote>
+				"Too long have we tried to extend our glorious empire out to the stars, only to be driven back."
+			</blockquote>
+			<div class="faq">
+				<h2>FAQ</h2>
+				<h3>How to play:</h3>
+				<p>
+				Select one of the tabs above to determine your space empire's current "X" focus (as in "4X"). 
+				Yes, that's all you can do.
+				You'll need to change focus many times to properly expand to a thousand suns.
+				</p>
+				<h3>Why is this game so simple? </h3>
+				<p>
+				In general incremental games are not particularly complex to play, plus this game is made to be 
+				especially simple for the Simple Jam.
+				</p>
+				<h3>Why isn't there a save or [my favorite feature]? Why do things not work right? </h3>
+				<p>This is just an early alpha.</p>
+				What to listen to: <a href="https://somafm.com/deepspaceone/" target="_blank">SomaFM Deep Space One</a>
+				</p>
+				<h3>Have some feedback? </h3>
+				<p>
+				Please join the conversation on reddit, twitter, tumblr, etc. (See links below.)
+				I really appreciate both criticism and positive feedback.
+				</p>
+			</div>
+
+			<footer>
+				<p>
+					Crafted by @deathraygames using the open source RocketBoots kit.
+					<br /> 
+					Created for the <a href="https://itch.io/jam/simple" target="_blank">Simple Jam 2016</a>. 
+					Inspired by the community of the 
+					<a href="https://www.reddit.com/r/incremental_games" target="_blank">incremental_games subreddit</a>.
+				</p>
+				<p class="links">
+					<a href="http://deathraygames.tumblr.com/" target="_blank">Tumblr</a> 
+					<a href="https://twitter.com/deathraygames" target="_blank">Twitter</a>
+					<a href="https://www.facebook.com/deathraygames/" target="_blank">Facebook</a>
+					<a href="https://www.reddit.com/r/deathraygames" target="_blank">Reddit</a>
+					<a href="https://github.com/deathraygames/" target="_blank">GitHub</a>
+					<a href="http://deathraygames.com/" target="_blank">DeathrayGames.com</a>
+				</p>
+				<p>
+					Copyright &copy; 2016<br /> 
+					Code released under the MIT License
+				</p>
+			</footer>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div class="options">
+	<!-- Options: --> 
+	<button type="button" class="toggleShowAll">Show all sections</button>
+</div>
+
+
+<div id="scripts">
+	<script src="scripts/rocketboots/core.js"></script>
+	<script src="scripts/mo1ks.js"></script>
+	<!-- <script src="../../js/ga.js"></script> -->
+</div>
+
+</body>
+</html>

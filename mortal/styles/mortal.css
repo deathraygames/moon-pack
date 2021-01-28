@@ -1,0 +1,158 @@
+html, body {
+	padding: 0;
+	margin: 0;
+}
+body {
+	background: #447788;
+	color: white;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 22px;
+	text-align: center;
+}
+
+article {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+article > * {
+	/* flex-grow: 1; */
+}
+
+a {
+	color: #eef;
+}
+
+button {
+	padding: 1em 2em;
+	font-size: 100%;
+	font-family: inherit;
+	cursor: pointer;
+	background-color: rgba(255,255,255,0.3);
+	color: #000;
+	box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.3);
+	outline: none;
+	border: 0.25em outset rgba(255,255,255,0.7);
+	transition: all 0.2s;
+}
+
+button:hover {
+	background-color: rgba(255,255,255,0.4);
+	border-color: rgba(255,255,255,0.8);
+}
+
+button:active {
+	background-color: rgba(255,255,255,0.2);
+	border-color: rgba(255,255,255,0.3);
+	box-shadow: 0 0 0.5em rgba(0,0,0,0.2);
+}
+
+header {
+	margin: 1em 0 2em 0;
+}
+
+footer {
+	font-size: 70%;
+	margin: 2em 0;
+}
+
+.character, .stats, .clickers {
+	flex-grow: 1;
+	width: 50%;
+	margin: 0 auto;
+	background: rgba(255,255,255,0.1);
+	padding: 0.2em 0;
+}
+
+.stats {
+	padding: 1em 0;
+	background: rgba(255,255,255,0.15);
+}
+.stats > div {
+	font-size: 150%;
+}
+.clickers {
+	padding: 1em 0;
+}
+
+.character {
+	flex-grow: 3;
+	background: rgba(255,255,255,0.4);
+}
+
+.click-rate {
+	opacity: 0.6;
+}
+
+.character img,
+.character > div {
+	display: none;
+	width: 100%;
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.dead {
+	color: rgba(0,0,0,0.7);
+	font-size: 360%;
+	padding: 0.2em;
+}
+.dead p {
+	margin: 0.5em 0;
+}
+
+.character.age-0 img.age-0 { display: block; }
+.character.age-1 img.age-1 { display: block; }
+.character.age-2 img.age-2 { display: block; }
+.character.age-3 img.age-3 { display: block; }
+.character.age-4 img.age-4 { display: block; }
+.character.age-5 img.age-5 { display: block; }
+.character.age-6 img.age-6 { display: block; }
+
+.character.age-7 > div.age-7 { display: block; }
+
+
+h1 {
+	font-size: 400%;
+	margin: 0;
+	font-weight: normal;
+}
+
+.years {
+	opacity: 0.5;
+}
+
+@media screen and (max-width: 900px) {
+	.character, .stats, .clickers {
+		width: 70%;
+	}
+}
+@media screen and (max-width: 800px) {
+	.character, .stats, .clickers {
+		width: 80%;
+	}
+}
+@media screen and (max-width: 700px) {
+	body {
+		font-size: 20px;
+	}
+	.character, .stats, .clickers {
+		width: 90%;
+	}
+}
+@media screen and (max-width: 600px) {
+	.character, .stats, .clickers {
+		width: 100%;
+	}
+	button {
+		padding: 1em;
+	}
+	.years {
+		display: block;
+		font-size: 80%;
+	}
+}

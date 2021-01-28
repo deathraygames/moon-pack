@@ -1,0 +1,221 @@
+body {
+	/*
+	font-family: 'Acme', sans-serif;
+	font-family: 'Roboto Mono', sans-serif;
+	font-family: 'Voltaire', sans-serif;
+	font-family: 'Amaranth', sans-serif;
+	font-family: 'Jockey One', sans-serif; 
+	*/
+	font-family: 'Spinnaker', sans-serif;
+	 
+
+	background-color: #030003;
+	color: #bcc;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    /*
+	background-image: linear-gradient(rgba(255,255,255,0.02) 2px, transparent 2px),
+		linear-gradient(90deg, rgba(255,255,255,0.02) 2px, transparent 2px),
+		linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+	*/
+	background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+	background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;	
+}
+a {
+	color: #6cc;
+	text-decoration: none;
+}
+	a:hover {
+		text-decoration: underline;
+	}
+
+button {
+	font-size: 90%;
+	border: solid 1px rgba(204, 255, 255, 0.5);
+	color: rgba(204, 255, 255, 1);
+	background: rgba(0,0,0,0.5);
+	cursor: pointer;
+	border-radius: 0.1em;
+}
+	button:hover {
+		color: white;
+		border-color: rgba(255,255,255,0.5);
+	}
+
+body > header {
+	padding: 0.5em;
+	text-align: center;
+}
+	body > header > h1 {
+		margin: 0; 
+		padding: 0.75em 0;
+		display: inline-block;
+		font-weight: normal;
+	}
+	.version {
+		opacity: 0.5;
+	}
+	header .suns {
+		/* font-family: 'Share Tech Mono'; */
+		opacity: 0.5;
+		font-size: 75%;
+	}
+	header .thousand {
+		display: none;
+	}
+
+#booting-up-rocket-boots {
+	position: absolute;
+	display: block;
+	padding: 1em 0;
+	width: 100%;
+	text-align: center;
+}
+
+
+.game {
+	width: 100%;
+}
+.tabs {
+	text-align: center;
+	border: solid 0px rgba(204,255,255,0.25);
+}
+nav.tabs {
+
+}
+	nav.tabs > a {
+		display: inline-block;
+		color: inherit;
+		border: inherit;
+		border-bottom-width: 2px;
+		padding: 1em 3%;
+		margin: 0.1em;
+		transition: all 0.2s ease-in;
+	}
+
+		nav.tabs > a.selected {
+			background: rgba(204,255,255,0.1);
+		}
+		nav.tabs > a:hover {
+			background: rgba(204,255,255,0.15);
+			text-decoration: none;
+		}
+	div.tabs > div {
+		display: none;
+		border: inherit;
+		border-bottom-width: 1px;
+		border-color: rgba(204,255,255,0.1);
+		min-height: 10em;
+		width: 80%;
+		max-width: 1000px;
+		padding: 1em 2em;
+		margin: 0 auto;
+		box-sizing: border-box;
+		text-align: left;
+		font-size: 60%;
+		transition: all 0.5s ease-in-out;
+	}
+	.showAll div.tabs > div {
+		display: block;
+	}
+	div.tabs > div.selected,
+	div.tabs > div.pinned {
+		display: block;
+		background: rgba(204,255,255,0.02);
+		border-color: inherit;
+		font-size: inherit;
+	}
+
+.tabs label {
+	display: inline-block;
+	width: 35%;
+	min-width: 10em;
+}
+.tabs ul {
+	margin: 0;
+	padding: 0;
+}
+.tabs li {
+	margin: 1em 0;
+	list-style: none;
+}
+
+/*
+.rate .currency-out-of,
+.rate .currency-max {
+	color: red;
+}
+*/
+.currency-val {
+	font-size: 150%;
+}
+.currency-tip {
+	display: block;
+	float: right;
+	font-size: 60%;
+	opacity: 0.5;
+	text-align: right;
+	width: 25%;
+	min-width: 10em;
+}
+.currency-out-of {
+	display: inline-block;
+	margin: 0 0.25em;
+}
+.currency-rate {
+	display: inline-block;
+	margin-left: 0.5em;
+	opacity: 0.75;
+}
+
+blockquote {
+	font-size: 1.25em;
+	font-style: italic;
+	margin: 1em 0 2em 0;
+	opacity: 0.5;
+}
+
+.faq {
+
+}
+	.faq h2 { display: none; }
+	.faq h3 {
+		opacity: 0.75;
+		font-size: 100%;
+		margin-bottom: 0.5em;
+	}
+
+
+footer {
+	display: block;
+	font-size: 75%;
+	margin: 3em 0;
+	padding: 2em 0;
+	text-align: center;
+	border-top: dotted 1px rgba(255,255,255,0.25);
+	transition: opacity 1s ease-in-out;
+}
+footer:hover {
+	
+}
+	footer .links a {
+		display: inline-block;
+		padding-right: 0.5em;
+	}
+	footer .links a:before {
+		content: "|";
+		display: inline-block;
+		margin-right: 0.5em;
+		color: rgba(0,0,0,0.5);
+	}
+	footer .links a:first-child:before {
+		content: "";
+	}
+
+.options {
+	margin: 1em 0;
+	padding: 2em 0;
+	text-align: center;
+}

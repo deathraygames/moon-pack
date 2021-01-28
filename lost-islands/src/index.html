@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>&AElig;LBAHKAT Exploration Game</title>
+	<link rel="stylesheet" href="styles/lost.css" />
+</head>
+<body>
+<div id="title">
+	<h1>&AElig;LBAHKAT</h1>
+	<div class="sub">The Lost Islands</div>
+	<p class="credits">
+	<span class="ver">v1.0</span>
+	By Luke @deathraygames for js13k 2017
+	</p>
+</div>
+<div id="intro">
+	<button type="button" id="beginButton">Begin Journey <span>[Enter]</span></button>
+	<p>
+		A cataclysm has shattered the known world and left islands adrift in the cosmos. Each island has only a handful of inhabitants, struggling to survive. All signs of civilization are gone, except for a few ancient shrines and stone gateways, and only the mystics seem to understand their signifigance.
+	</p>
+	<p>
+		You wake up on one of these islands as a Stranger, not remembering your past. Perhaps with some exploration and meditation you will be able to uncover a way home...
+	</p>
+</div>
+<div id="win" style="display:none">
+	You enter the red moon gate and teleport home.
+	<p class="winBig">YOU WIN!<i>&#9765;</i></p>
+</div>
+<div id="loading">
+	<i class="spin">&#9765;</i>
+	Loading...
+</div>
+<div id="body">
+	<canvas id="g"></canvas>
+	<div id="what"></div>
+	<div id="verb"></div>
+	<div id="time"></div>
+	<div id="inventory">
+		<h2>Inventory</h2>
+		<ul id="items">
+		</ul>
+		<h2>Virtues</h2>
+		<ul id="virtues">
+		</ul>
+		<div id="virtueCount"></div>
+		<h2>People</h2>
+		<div id="people"></div>
+		<h2>Tips</h2>
+		<ul id="tips">
+			<li>Move with arrow keys or WASD</li>
+			<li>[I] or [Tab] to toggle this inventory</li>
+			<li>[E] or [Space] will do actions when near people or objects</li>
+			<li>[M] to meditate</li>
+			<li>[+] &amp; [-] to zoom</li>
+			<li>Boats, coats, and water will increase your speed on the seas, mountains, and deserts</li>
+			<li>Tents will speed up time [E] when not near anything</li>
+			<li>Your goal is to explore: find all shrines, a mystic, and a way to leave</li>
+		</ul>
+	</div>	
+</div>
+<!-- <script src="game.min.js"></script> -->
+<script src="scripts/Coords.js"></script>
+<script src="scripts/rand.js"></script>
+<script src="scripts/GameImage.js"></script>
+<script src="scripts/SpriteSheet.js"></script>
+<script src="scripts/Thing.js"></script>
+<script src="scripts/Character.js"></script>
+<script src="scripts/Player.js"></script>
+<script src="scripts/Shrine.js"></script>
+<script src="scripts/Portal.js"></script>
+<script src="scripts/World.js"></script>
+<script src="scripts/Screen.js"></script>
+<script src="scripts/Loop.js"></script>
+<script src="scripts/Game.js"></script>
+<script>
+	var g = new Game();
+	g.init();
+</script>
+</body>
+</html>

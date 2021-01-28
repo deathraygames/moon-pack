@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Star Hopper: Crank</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<link rel="stylesheet" href="styles/css.css" />
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+	<script src="scripts/libs/lodash.min.js"></script>
+</head>
+<body>
+
+<section class="splash">
+	<h1>
+		Star Hopper:
+		<span class="subtitle">Crank</span>
+	</h1>
+	<span class="version">-</span>
+
+	<button type="button" class="space primary">Enter Deep Space</button>
+
+	<div class="instructions">
+		<p>
+			You are a galactic explorer, deep in uncharted space aboard a new, experimental, modular-designed "Crank" ship.
+			Your goal is to explore the galaxy, mine asteroids for resources,
+			and build new parts onto your ship. (Gameplay: Mine ore, scan for systems, travel to new systems; keep your energy up.)
+		</p>
+		<p>
+			Power may be sparse at first, but luckily your ship comes equipped
+			with a handy, manual crank for generating energy.
+		</p>
+	</div>
+	<div class="credits">
+		<p>
+			Originally created in 48 hours for Ludum Dare 39, with the theme of "Running out of power". (<a href="https://ldjam.com/events/ludum-dare/39/star-hopper-crank" target="_blank">LDJAM entry</a>)
+		</p>
+		<p class="social-links">
+			<a href="https://ldjam.com/users/deathray" target="_blank">Ludum Dare</a>
+			<a href="https://www.reddit.com/r/deathraygames/" target="_blank">Reddit /r/deathraygames/</a>
+			<a href="https://deathraygames.tumblr.com/" target="_blank">Tumblr</a>
+			<a href="https://twitter.com/deathraygames" target="_blank">Twitter</a>
+		</p>
+	</div>
+
+</section>
+
+
+<section id="stage"></section>
+
+<button type="button" class="full-icon menu">
+	<i class="material-icons">menu</i>
+</button>
+
+<div class="info circle location-info">
+	<span class="location-name">Home</span>
+	<div class="asteroids">
+		<span class="number">0000</span> Asteroids
+	</div>
+	<div class="stardust">
+		Only stardust left in this system
+		<div class="bad">Your mining will be reduced</div>
+	</div>
+</div>
+
+<div class="info circle navigation-info clickable showNavigation">
+	<i class="material-icons gps-icon">gps_fixed</i>
+	<div class="title">Navigation</div>
+	<div class="nav-no-target">No Target</div>
+	<div class="nav-target">TARGET SET</div>
+	<div class="nav-discovered"><span class="number"></span> Discovered</div>
+</div>
+<!--
+<button type="button" class="full-icon info diagnostics">
+	<i class="material-icons">highlight</i>
+</button>
+-->
+
+<div class="info dashboard">
+	<div class="energy-info">
+		<i class="material-icons">flash_on</i>
+		Energy
+		<span class="energyNumbers numbers"></span>
+		<div class="bar"><span></span></div>
+		<div class="rate"></div>
+		<button type="button" class="crank">
+			Crank
+			<span class="switch"><i class="material-icons">power_settings_new</i></span>
+		</button>
+	</div>
+	<div class="storage-info">
+		<i class="material-icons">terrain</i>
+		Ore
+		<span class="storageNumbers numbers"></span>
+		<div class="bar"><span></span></div>
+		<div class="rate"></div>
+		<button type="button" class="miners">
+			Miners
+			<span class="switch"><i class="material-icons">power_settings_new</i></span>
+		</button>
+	</div>
+	<div class="travel-info">
+		<i class="material-icons">change_history</i>
+		Travel
+		<span class="numbers"></span>
+		<div class="bar"><span></span></div>
+		<div class="rate"></div>
+		<button type="button" class="engines">
+			Engines 
+			<span class="switch"><i class="material-icons">power_settings_new</i></span>
+		</button>
+	</div>
+	<div class="scan-info">
+		<i class="material-icons">wifi_tethering</i>
+		Scan
+		<span class="scanNumbers numbers"></span>
+		<div class="bar"><span></span></div>
+		<div class="rate"></div>
+		<button type="button" class="scanners">
+			Scanners
+			<span class="switch"><i class="material-icons">power_settings_new</i></span>
+		</button>
+	</div>
+	<div>
+		Achievements
+		<div class="achievement-list">
+			<div class="parts-unlocked">
+				<i class="material-icons">lock_open</i> Parts Unlocked</dt>
+				<div class="numbers"></div>
+				<div class="bar"><span></span></div>
+			</div>
+			<div class="systems-explored">
+				<i class="material-icons">public</i> Systems Explored
+				<div class="numbers"></div>
+				<div class="bar"><span></span></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<dl class="ship-info">
+	<div class="parts-unlocked">
+		<dt><i class="material-icons">lock_open</i> Parts Unlocked</dt>
+		<dd class="numbers"></dd>
+		<dd class="bar-data">
+			<span class="bar">
+				<span></span>
+			</span>
+		</dd>
+	</div>
+	<div class="systems-explored">
+		<dt><i class="material-icons">public</i> Systems Explored</dt>
+		<dd class="numbers"></dd>
+		<dd class="bar-data">
+			<span class="bar">
+				<span></span>
+			</span>
+		</dd>
+	</div>
+	<div class="travel-info">
+		<dt><i class="material-icons">change_history</i> Travel</dt>
+		<dd class="numbers"></dd>
+		<dd class="bar-data">
+			<span class="bar">
+				<span></span>
+			</span>
+		</dd>
+		<dd class="rate"></dd>
+	</div>
+	<div class="scan-info">
+		<dt><i class="material-icons">wifi_tethering</i> Scan</dt>
+		<dd class="scanNumbers numbers"></dd>
+		<dd class="bar-data">
+			<span class="bar">
+				<span></span>
+			</span>
+		</dd>
+		<dd class="rate"></dd>
+	</div>
+	<div class="energy-info">
+		<dt><i class="material-icons">flash_on</i> Energy</dt>
+		<dd class="energyNumbers numbers"></dd>
+		<dd class="bar-data">
+			<span class="bar">
+				<span></span>
+			</span>
+		</dd>
+		<dd class="rate"></dd>
+	</div>
+	<div class="storage-info">
+		<dt><i class="material-icons">terrain</i> Ore</dt>
+		<dd class="storageNumbers numbers"></dd>
+		<dd class="bar-data">
+			<span class="bar">
+				<span></span>
+			</span>
+		</dd>
+		<dd class="rate"></dd>
+	</div>
+</dl>
+
+<div class="info part-info">
+	<div class="part-type-name">Part Type Name</div>
+	<dl>
+		<dt>Energy / Max</dt>
+		<dd>
+			<span class="part-energy"></span> / 
+			<span class="part-energyMax"></span>
+		</dd>
+		<dt>Energy Generated - Used</dt>
+		<dd class="part-energy-gen-used"></dd>
+		<dt>Efficiency</dt>
+		<dd class="part-lastEfficiency"></dd>
+	</dl>
+	<button type="button" class="deselectPart">X</button>
+</div>
+
+<nav class="controls space-controls">
+	<!--
+	<button type="button" class="crank">
+		<i class="material-icons">flash_on</i> Crank
+	</button>
+	<button type="button" class="full-icon zoomIn left-paired">
+		<i class="material-icons">zoom_in</i>
+	</button>
+	<button type="button" class="full-icon zoomOut right-paired">
+		<i class="material-icons">zoom_out</i>
+	</button>
+	<button type="button" class="share">
+		<i class="material-icons">share</i>
+	</button>
+	<button type="button" class="fullscreen">
+		<i class="material-icons">settings_overscan</i>
+	</button>
+	<button type="button" class="qa">
+		<i class="material-icons">question_answer</i>
+	</button>
+	<button type="button" class="scanners">
+		<i class="material-icons">wifi_tethering</i> Scanners
+	</button>
+	<button type="button" class="engines">
+		<i class="material-icons">brightness_low</i> Engines
+	</button>
+	<button type="button" class="miners">
+		<i class="material-icons">terrain</i> Miners
+	</button>
+	-->
+	<button type="button" class="build">
+		<i class="material-icons">settings</i> Build
+	</button>
+</nav>
+<nav class="controls build-controls">
+	<button type="button" class="toggle switchToCreativeMode">
+		<i class="material-icons">format_paint</i>
+		Creative Mode
+	</button>
+	<button type="button" class="full-icon previousPart left-paired">
+		<i class="material-icons">keyboard_arrow_left</i>
+	</button>
+	<button type="button" class="full-icon nextPart right-paired">
+		<i class="material-icons">keyboard_arrow_right</i>
+	</button>
+	<button type="button" class="selectBuildPart">
+		<i class="material-icons">keyboard_arrow_up</i> 
+		Select Part: <span class="selected-part-name">__</span>
+	</button>
+	<button type="button" class="full-icon deletePart">
+		<i class="material-icons">delete_forever</i>
+	</button>
+	<!--
+	<button type="button" class="full-icon rotateLeft left-paired">
+		<i class="material-icons">rotate_left</i>
+	</button>
+	<button type="button" class="full-icon rotateRight right-paired">
+		<i class="material-icons">rotate_right</i> Rotate
+	</button>
+	-->
+	<button type="button" class="build">
+		<i class="material-icons">settings</i> Done
+	</button>
+</nav>
+
+<section class="navigation-panel">
+	<div>
+		<h2>Astro-Navigation</h2>
+		<h3>Current Target System</h3>
+		<div class="target-location">
+			<p class="info"><!-- populated with js --></p>
+			<i class="material-icons full-icon">gps_fixed</i>
+		</div>
+		<div class="no-target-location zero">
+			<p>No target location</p>
+			<i class="material-icons full-icon">gps_off</i>
+		</div>
+		<h3>Discovered Systems</h3>
+		<p>
+			Select a system as a target and activate your engines to travel.
+		</p>
+		<ul class="found-locations-list select-list">
+			<!-- populated with js -->
+		</ul>
+		<div class="no-found-locations zero">
+			<p>No available locations. Use your scanners to locate new systems.</p>
+			<i class="material-icons full-icon">wifi_tethering</i>
+		</div>
+		<button type="button" class="closeNavigation">Close</button>
+	</div>
+</section>
+
+<section class="part-selection">
+	<h2>Parts</h2>
+	<ul class="part-list select-list">
+		<!-- populated with js -->
+	</ul>
+	<button type="button" class="closePartSelection">Close</button>
+</section>
+
+<section class="messages">
+</section>
+
+<div class="scripts">
+	<!-- <script src="scripts/rocketboots/core.js"></script> -->
+	
+	<script src="https://rocket-boots.github.io/rocket-boots/scripts/rocketboots/core.js"></script>
+	<script> RocketBoots.useGitHubScripts(); </script>
+
+	<script src="scripts/shc-classes.js"></script>
+	<script src="scripts/shc-data.js"></script>
+	<script src="scripts/shc-game.js"></script>
+	
+	<script src="http://deathraygames.com/js/ga.js"></script>
+</div>
+
+</body>
+</html>

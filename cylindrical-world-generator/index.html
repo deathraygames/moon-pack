@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Procedural Cylindrical World Generator - ProcJam 2014</title>
+	<!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="style.css" />	
+	<script src="jquery.min.js"></script>
+	<script src="coords.js"></script>
+	<script src="cwg.js"></script>
+	
+</head>
+<body>
+	<header>Cylindrical World Generator v0.4 
+		for <a href="http://itch.io/jam/procjam" target="_blank">Procedural Generation Jam 2014</a>
+	</header>
+	<div>
+		<canvas id="cnvs" width="1000" height="500"></canvas>
+	</div>
+	<div class="sidebar">
+		Age: <span class="ageEon"></span> eons
+		<br />
+		Seed: <input type="number" id="seed" value="0" />
+		<button type="button" id="restart">Rebuild</button>
+	</div>
+	<ul>
+		<li>Press <button type="button" class="enter">Enter</button> to start/stop aging the world</li>
+		<li>Arrows or WASD to move world</li>
+		<li>] to raise water, [ to lower water</li>
+		<li>Press space to toggle view</li>
+		<li>+/- to zoom in/out</li>
+		<li>r = raindrop erosion</li>
+		<li>z = smooth</li>
+		<li>x = toggle grid</li>
+		<li>c = coastal erosion</li>
+		<li>v = water volume adjustment</li>
+		<li>m = toggle micro-organisms</li>
+		<li>g = toggle grass</li>
+		<li>p = move plates</li>
+		<li>right-click map = Save as image (in Chrome)</li>
+	</ul>
+	<a href="https://github.com/Lukenickerson/cylindrical-world-generator" target="_blank">
+		<img style="position: absolute; top: 0; right: 0; border: 0;" 
+			src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png">
+	</a>	
+	<div>
+		<a href="http://jsfiddle.net/luken/nL4y7z3c/" target="_blank">Earlier version 0.3 available on jsfiddle</a>
+	</div>
+	<footer>
+		By Luke @deathraygames 
+		(<a href="http://twitter.com/deathraygames" target="_blank">twitter</a>,
+		<a href="http://deathraygames.tumblr.com" target="_blank">tumblr</a>)
+		<br />
+		&copy 2014 
+		<br />
+		Code for this version (0.4) and lower may be used freely
+		under the MIT license
+	</footer>
+</body>
+</html>

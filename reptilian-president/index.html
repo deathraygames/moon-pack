@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Reptilian President</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/rocketboots.css" />
+	<link rel="stylesheet" href="styles/game.css" />
+	<link href='http://fonts.googleapis.com/css?family=Contrail+One|Press+Start+2P' rel='stylesheet' type='text/css'>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+	<div id="booting-up-rocket-boots">
+		<h1>Booting Up RocketBoots Framework</h1>
+		<p>Please wait...</p>
+	</div>
+
+
+	<header>
+		<h1>Reptilian President <span class="version">v1.2.1</span></h1>
+	</header>
+
+
+	<div class="state boot">
+		Booting Up Game...
+	</div>	
+	<div class="state preload">
+		Preloading Content...
+	</div>
+	
+	<div class="state splash">
+		<img src="images/title.png" class="keyboard-tap" data-keyboard-key="ANY" />
+		<div class="game-controls">
+			<button type="button" class="keyboard-tap" data-keyboard-key="ANY">Press any key to begin</button>
+		</div>
+	</div>
+
+	<div class="state win">
+		<img src="images/win.png" class="keyboard-tap" data-keyboard-key="ANY" />
+		<div class="game-controls">
+			<button type="button" class="keyboard-tap" data-keyboard-key="TAB">continue playing</button>
+		</div>
+		<p>
+			Reload the page (F5) to start over.
+		</p>
+	</div>	
+
+	<div class="state game">
+
+		<div id="game-stage" class="stage"></div>
+		<div class="tip votes">votes</div>
+		<div class="tip suit">human suit</div>
+		<div class="tip fear">fear</div>
+
+		<div class="game-controls">
+			<button type="button" class="keyboard-tap" data-keyboard-key="LEFT">&lt;</button>
+			<button type="button" class="keyboard-tap" data-keyboard-key="RIGHT">&gt;</button>
+			<button type="button" class="keyboard-tap" data-keyboard-key="SPACE">space</button>
+			<button type="button" class="keyboard-tap" data-keyboard-key="TAB">tab</button>
+			<!-- <button type="button" class="game-control-2 goto" data-state="mainmenu">menu</button> -->
+		</div>
+	</div>
+
+		<div class="gameInfo instructions">
+			<p>Left/Right/A/D = Movement</p>
+			<p>Tab = beam up/down from UFO</p>
+			<p>Space (hold down) = give speech or fire UFO laser to collect human-suit</p>
+		</div>
+		<div class="gameInfo instructions">
+			<p>Green bar = voters for the Reptilian Illuminati Party</p>
+			<p>Red bar = voters for the Grand Ancients Party</p>
+			<p>Blue bar = voters for the Demopublican SuperPAX Party</p>
+			<p>Brown bar = The durability of your human-suit; if it drops too low you'll be seen as a reptilian</p>
+			<p>Orange bar = The level of fear among the citizens</p>
+			<p>To win: Get over 50% of the vote for the Reptilian Illuminati Party (green)!</p>
+		</div>
+		<div class="gameInfo">
+			Due to the success of previous reptilians running for public office, you've decided to run for president. 
+			The only thing holding you back is your itchy human-suit, and it's tendency to decompose, exposing your true, 
+			alien shape. Luckily using the LASERs on your UFO it should be easy to harvest more human-suits; hopefully 
+			this won't make the humans panic too much.
+		</div>
+		<div class="credits gameInfo">
+			<p>
+			<a href="http://ludumdare.com/compo/ludum-dare-35/?action=preview&uid=17861" target="_blank">
+				Version 1.0 was originally developed
+				in 48 hours</a> for the
+			<a href="http://ludumdare.com/compo/ludum-dare-35/" target="_blank">Ludum Dare 35 game jam (theme "Shapeshift")</a>
+			and <a href="https://itch.io/jam/lowrezjam2016" target="_blank">Low Rez Jam (64x64 px)</a> 
+			</p>
+			<p>
+			by Luke Nickerson 
+			<a href="https://twitter.com/deathraygames" target="_blank" title="Go to the deathraygame twitter page">@deathraygames</a>
+			<br>
+			using the
+			<a href="https://github.com/Lukenickerson/rocketboots" 
+				target="_blank"
+				title="RocketBoots - Starter Kit for Web Games - visit the GitHub repo">
+				RocketBoots web game starter kit
+			</a>
+			</p>
+			<p>
+			&copy; 2016
+			</p>
+		</div>		
+
+
+
+	
+
+
+
+<script src="scripts/rocketboots/core.js"></script>
+<script src="scripts/game.js"></script>
+<script src="../../js/ga.js"></script>
+
+
+</body>
+</html>

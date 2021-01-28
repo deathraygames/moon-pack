@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Deluge of Doom - Ludum Dare 42</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/flood.css" />
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+	<!--
+	<link href="https://fonts.googleapis.com/css?family=Jolly+Lodger|Mouse+Memoirs" rel="stylesheet">
+	-->
+	<link rel="stylesheet" href="styles/fonts.css" />
+</head>
+<body>
+<div id="page" class="show-splash">
+	<section id="pixi-view" class="screen"></section>
+	<div class="ui">
+		<div class="actions" id="tools">
+			<button type="button" id="tool-C">Build Coal Factory</button>
+			<button type="button" id="tool-S">Build Solar Factory</button>
+			<button type="button" id="tool-A">Build Apartment</button>
+			<button type="button" id="tool-H">Build House</button>
+			<button type="button" id="tool-stats">Toggle Stats Overlay</button>
+			<div class="info">
+				<div class="info-C">
+					Carbon burning factories produce boxes but create a lot of pollution.
+					Click on a valid location to start building.
+					Construction will require 6 boxes.
+				</div>
+				<div class="info-S">
+					Solar factories produce boxes without pollution.
+					Click on a valid location to start building.
+					Construction will require 12 boxes.
+				</div>
+				<div class="info-A">
+					Apartments fit more merbals.
+					Click on a valid location to start building.
+					Construction will require 4 boxes.
+				</div>
+				<div class="info-H">
+					Small house doesn't fit many merbals.
+					Click on a valid location to start building.
+					Construction will require 1 box.
+				</div>
+				<div class="info-stats">
+					Stats Overlay ON
+				</div>
+			</div>
+		</div>
+		<div class="world">
+			<dl>
+				<div>
+					<dt>Boxes of Widgets</dt>
+					<dd>
+						<span id="total-boxes-value" class="value">--</span>
+						/
+						<span id="max-boxes-value" class="value">--</span>
+					</dd>
+				</div>
+				<div>
+					<dt>Average Happiness</dt>
+					<dd><span id="happiness-value" class="value">---</span>%</dd>
+				</div>
+				<div>
+					<dt>Housing</dt>
+					<dd><span id="housing-value" class="value">---</span>%</dd>
+				</div>
+				<div>
+					<dt>Employment</dt>
+					<dd><span id="employment-value" class="value">---</span>%</dd>
+				</div>
+			</dl>
+
+		</div>
+		<div class="pollution">
+			<dl>
+				<div>
+					<dt>Pollution Rate</dt>
+					<dd><span id="pollution-rate-value" class="value">--</span>/sec</dd>
+				</div>
+				<div>
+					<dt>Pollution</dt>
+					<dd><span id="pollution-value" class="value">---</span></dd>
+				</div>
+			</dl>
+		</div>
+		<div class="water">
+			<dl>
+				<div>
+					<dt>Melt Rate</dt>
+					<dd><span id="melting-rate-value" class="value">--</span>/sec</dd>
+				</div>
+				<div>
+					<dt>Time Until Water Rise</dt>
+					<dd><span id="time-until-water-rise" class="value">---</span> seconds</dd>
+				</div>
+			</dl>			
+		</div>
+		<!--
+		<div id="building-controls">
+			<button type="button" id="switch">Switch on/off</button>
+		</div>
+		-->
+	</div>
+	<div class="splash">
+		<h1>DELUGE of DOOM</h1>
+		<p>
+			"We have a catastrophe on our hands!"
+		</p>
+		<p>
+			<img src="images/merbal1.png" />
+			Scientist: "The previous morons in charge were both greedy and dumb,
+			and ignored our warnings. They enriched themselves
+			at the expense of our planet. Now we're doomed!"
+		</p>
+		<p>
+			<img src="images/merbal1.png" />
+			Senator: "You've been given emergency powers to try to stop the rising
+			water before it's too late. Our factories will produce valuable
+			boxes of widgets which you can use to build new buildings. Good luck,
+			we're all counting on you."
+		</p>
+
+		<button type="button" id="start">Start</button>
+		<p class="splash-credits">
+			Created for 
+			<a href="https://ldjam.com/events/ludum-dare/42/deluge-of-doom">Ludum Dare #42</a>,
+			a 48-hour game jam with the theme of
+			"Running out of space". Created by Luke @deathraygames using
+			<a href="https://github.com/rocket-boots/rocket-boots">RocketBoots</a>, 
+			<a href="http://www.pixijs.com/">Pixi</a>, Google fonts, and the 
+			<a href="https://lospec.com/palette-list/steam-lords">Steam Lords palette</a>. 
+			Open source: <a href="https://github.com/deathraygames/deluge-of-doom">v1.2.0</a>
+		</p>
+	</div>
+	<div class="end">
+		<p>
+			Congratulations! You've stopped the
+		</p>
+		<h1>DELUGE of DOOM</h1>
+		<p>
+			But your work is not finished! 
+			Keep playing and try to get to 100% Happiness, 100% Housing, and 100% Employment.
+		</p>
+		<button type="button" id="return">Return to Game</button>
+		<p>
+			...or if you want to try out a new land,
+			then refresh the page to play again.
+		</p>
+	</div>
+</div>
+
+<div class="scripts">
+	<!-- Switch the paths of these to the appropriate local path -->
+	<script src="scripts/libs/lodash.min.js"></script>
+	<script src="scripts/libs/pixi.min.js"></script>
+	<!-- <script src="scripts/libs/astar.js"></script> -->
+
+	<!-- Switch to local rocketboots when development is done -->
+	<!--
+	<script src="https://rocket-boots.github.io/rocket-boots/scripts/rocketboots/core.js"></script>
+	<script> RocketBoots.useGitHubScripts(); </script>
+	-->
+	<script src="scripts/rocketboots/core.js"></script>
+
+	<!-- The game's required files (classes, data) -->
+	<script src="scripts/Panner.js"></script>
+	<script src="scripts/data.js"></script>
+	<script src="scripts/classes.js"></script>
+	<!-- The game itself - sometimes self-initializes, sometimes not -->
+	<script src="scripts/game.js"></script>
+
+	<!-- For Deathraygames.com only: uncomment out for google analytics -->
+	<script src="https://deathraygames.com/js/ga.js"></script>
+
+</div>
+</body>

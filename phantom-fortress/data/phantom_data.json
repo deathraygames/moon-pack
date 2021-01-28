@@ -1,0 +1,270 @@
+{
+	"floors" : [
+		{
+			"name" 		: "Base"
+			,"description" : "The ground floor of the fortress is where the combat happens!"
+			,"jobName"	: "guard"
+			,"forSale"	: false
+			,"cost" : {}
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: false
+			,"workerSpaces"	: 3
+		}
+		,{
+			"name"		: "Empty"
+			,"description" : "An empty stone room. Not very interesting or useful."
+			,"jobName"	: "fool"
+			,"forSale"	: false
+			,"cost" 		: { "gold" : 100 }
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: false
+			,"workerSpaces"	: 1
+			,"output" : {
+			}
+		}
+		,{
+			"name"		: "Tunnel"
+			,"description" : "An earthen tunnel dug under the fortress. Dirty and pointless."
+			,"jobName"	: "digger"
+			,"forSale"	: false
+			,"cost" 		: { "gold" : 100 }			
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: true
+			,"workerSpaces"	: 1
+			,"output" : {
+			}
+		}		
+		,{
+			"name"		: "Mine"
+			,"description" : "A mine allows you to dig valuable natural resources out of the ground."
+			,"jobName"	: "miner"
+			,"forSale"	: true
+			,"cost" 		: { "gold" : 100 }			
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: true
+			,"workerSpaces"	: 2
+			,"output" : {
+				"stone" : 1
+			}
+		}
+		,{
+			"name"		: "Trading"
+			,"description" : "A trading floor allows you to generate a small amount of gold. Essential for having a steady income of gold."
+			,"jobName"	: "merchant"
+			,"forSale"	: true
+			,"cost" 		: { "gold" : 100 }
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: false			
+			,"workerSpaces"	: 3
+			,"output" : {
+				"gold" : 1
+			}
+		}
+		,{
+			"name"		: "Storage"
+			,"description" : "[doesn't work yet]"
+			,"forSale"	: false
+			,"cost" 		: { "gold" : 100 }
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: false			
+		}		
+		,{
+			"name"		: "Shipping"
+			,"description" : "This shipping floor allows you to sell ore for gold. Requires a good supply of ore."
+			,"jobName"	: "merchant"
+			,"forSale"	: true
+			,"cost" 		: { "gold" : 300, "ore" : 25 }
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: false			
+			,"workerSpaces"	: 2
+			,"output" : {
+				"gold" : 2
+			}
+			,"input" : {
+				"ore" : 1
+			}
+		}
+		,{
+			"name"		: "Library"
+			,"description" : "Research done on this floor will increase arcane knowledge."
+			,"jobName"	: "researcher"
+			,"forSale"	: true
+			,"cost" 		: { "gold" : 400 }
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: false			
+			,"workerSpaces"	: 2
+			,"output" : {
+				"arcane" : 1, "gold" : 1
+			}			
+		}
+		,{
+			"name"		: "Crypt"
+			,"description" : "Tending the tombs of the dead provides some soul shards."
+			,"jobName"	: "undertaker"
+			,"forSale"	: true
+			,"cost" 		: { "gold" : 500, "souls" : 250 }
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: true			
+			,"workerSpaces"	: 1			
+			,"output" : {
+				"souls" : 1
+			}			
+		}		
+		,{
+			"name"		: "Experiment"
+			,"description" : "The dark experiments done on this floor will convert souls into arcane knowledge."
+			,"jobName"	: "investigator"
+			,"forSale"	: true
+			,"cost" 		: { "gold" : 1000, "arcane" : 500 }
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: false			
+			,"workerSpaces"	: 2
+			,"output" : {
+				"arcane" : 3
+			}
+			,"input" : {
+				"souls" : 2
+			}
+		}
+		,{
+			"name"		: "Telescope"
+			,"description" : "Viewing the cosmic heavens produces arcane knowledge."
+			,"jobName"	: "astrologer"
+			,"forSale"	: true
+			,"cost" 		: { "gold" : 2000 }
+			,"isTopOnly" 	: true
+			,"isBottomOnly"	: false			
+			,"workerSpaces"	: 2
+			,"output" : {
+				"arcane" : 2
+			}			
+		}
+		,{
+			"name"		: "Portal"
+			,"description" : "Powerful arcane magics can be used to summon souls from the Netherworld."
+			,"jobName"	: "gatekeeper"
+			,"forSale"	: true
+			,"cost" 		: { "gold" : 3000, "arcane" : 1000 }
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: false			
+			,"workerSpaces"	: 2
+			,"output" : {
+				"souls" : 3
+			}
+			,"input" : {
+				"arcane" : 4
+			}
+		}
+
+		,{
+			"name"		: "Traps"
+			,"description" : "[doesn't work yet]"
+			,"jobName"	: "guard"
+			,"forSale"	: false
+			,"cost" 		: { "gold" : 500 }
+			,"isTopOnly" 	: false
+			,"isBottomOnly"	: false			
+			,"workerSpaces"	: 2			
+		}		
+	]
+	,"goons" : [
+		{
+			"name"		: "Phantom Lord"
+			,"isUndead"	: true
+			,"weightMultiplier" : 0.1
+			,"forSale"	: false
+			,"hitPoints" 	: 30
+			,"damage"		: 1
+		}
+		,{
+			"name"		: "Ghoul Bat"
+			,"isUndead"	: true
+			,"weightMultiplier" : 0.4
+			,"forSale"	: true
+			,"cost" : {
+				"souls" : 4
+			}
+			,"hitPoints" 	: 8
+			,"damage"		: 1
+		}		
+		,{
+			"name"		: "Ghost"
+			,"isUndead"	: true
+			,"weightMultiplier" : 0.15
+			,"forSale"	: true
+			,"cost" : {
+				"souls" : 10
+			}
+			,"hitPoints" 	: 12
+			,"damage"		: 2
+		}
+		,{
+			"name"		: "Orc"
+			,"isUndead"	: false
+			,"weightMultiplier" : 1
+			,"forSale"	: true
+			,"cost" : {
+				"gold" : 10
+			}
+			,"hitPoints" 	: 20
+			,"damage"		: 1
+		}
+		,{
+			"name"		: "Poison Ghost"
+			,"isUndead"	: true
+			,"weightMultiplier" : 0.1
+			,"forSale"	: true
+			,"cost" : {
+				"souls" : 40
+			}
+			,"hitPoints" 	: 10
+			,"damage"		: 6
+		}		
+		,{
+			"name"		: "Deep Orc"
+			,"isUndead"	: false
+			,"weightMultiplier" : 1.2
+			,"forSale"	: true
+			,"cost" : {
+				"gold" : 50
+			}
+			,"hitPoints" 	: 40
+			,"damage"		: 2
+		}
+		,{
+			"name"		: "Wizard Eye"
+			,"isUndead"	: false
+			,"weightMultiplier" : 0.08
+			,"forSale"	: true
+			,"cost" : {
+				"arcane" : 300
+			}
+			,"hitPoints" 	: 100
+			,"damage"		: 20
+		}			
+	]
+	,"invaders" : [
+		{
+			"name"		: "Knight"
+			,"isUndead"	: false
+			,"weightMultiplier" : 1.4
+			,"hitPoints" 	: 15
+			,"damage"		: 2
+		}	
+		,{
+			"name"		: "Cleric"
+			,"isUndead"	: false
+			,"weightMultiplier" : 1.2
+			,"hitPoints" 	: 15
+			,"damage"		: 2
+		}
+		,{
+			"name"		: "Hierophant"
+			,"isUndead"	: false
+			,"weightMultiplier" : 1.0
+			,"hitPoints" 	: 10
+			,"damage"		: 2
+		}		
+	]		
+	
+}

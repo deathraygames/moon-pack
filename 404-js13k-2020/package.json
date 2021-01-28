@@ -1,0 +1,39 @@
+{
+  "name": "404-js13k-2020",
+  "version": "0.1.1",
+  "description": "",
+  "main": "./src/game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.cjs",
+    "watch": "webpack --config webpack.config.cjs --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deathraygames/404-js13k-2020.git"
+  },
+  "keywords": [
+    "js13k",
+    "js13k-2020",
+    "game",
+    "webgl"
+  ],
+  "author": "Luke Nickerson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deathraygames/404-js13k-2020/issues"
+  },
+  "homepage": "https://github.com/deathraygames/404-js13k-2020#readme",
+  "devDependencies": {
+    "bestzip": "^2.1.7",
+    "closure-webpack-plugin": "^2.3.0",
+    "google-closure-compiler": "^20200719.0.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "rocket-boots-coords": "git+https://github.com/rocket-boots/coords.git#v0.6.0",
+    "rocket-boots-physics": "git+https://github.com/rocket-boots/physics.git#v0.5.0",
+    "webglp": "git+https://github.com/rocket-boots/webglp.git#v0.1.1"
+  }
+}

@@ -1,0 +1,151 @@
+body {
+	background: #000;
+	padding: 0;
+	margin: 0;
+	color: #fff;
+	font-size: 16px;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+button {
+	font-family: inherit;
+	font-size: inherit;
+	padding: 1em 2em;
+	border: solid 1px rgba(255,255,255,0.5);
+	color: #fff;
+	background: rgba(0,0,0,0.5);
+	cursor: pointer;
+	transition: all 1s;
+}
+	button:hover {
+		border-color: #fff;
+		background: rgba(50,50,50,0.5);
+	}
+#body {
+	display: none;
+}
+#g {
+	display: block;
+	width: 100%;
+	height: 700px;
+	border: solid 2px #5252FF;
+	box-sizing: border-box;
+}
+#title {
+	padding: 2%;
+	text-align: center;
+}
+#title h1 {
+	font-size: 730%;
+	letter-spacing: -0.1em;
+	margin: 0.2em 0 0.1em 0;
+	opacity: 0.4;
+}
+#intro {
+	display: none;
+	max-width: 36em;
+	margin: 1em auto;
+}
+	#intro button {
+		display: block;
+		margin: 0 auto;
+		font-size: 200%;
+	}
+	#intro button span {
+		font-size: 50%;
+		display: block;
+		margin-top: 0.5em;
+	}
+	#intro p { 
+		margin: 2em 0; 
+		line-height: 1.4em;
+		color: #666666;
+	}
+.ver {
+	opacity: 0.4;
+}
+.sub {
+	font-size: 350%;
+	letter-spacing: -0.05em;
+}
+.credits {
+	font-size: 120%;
+	margin-top: 3em;
+}
+#loading { 
+	font-size: 200%; 
+	text-align: center;
+	padding: 0.5em;
+	color: #5252FF;
+}
+#time {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 1em;
+}
+#what, #verb {
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	width: 18em;
+	margin-left: -9em;
+	padding: 1em;
+	text-align: center;
+}
+#what {
+	border: solid 2px #5252FF;
+	background: #000;
+}
+#verb {
+	bottom: 3em;
+}
+#inventory {
+	border: solid 2px #5252FF;
+	max-width: 14em;
+	background: #000;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	padding: 1em;
+	overflow: auto;
+}
+#inventory h2 {
+	font-size: 100%;
+	font-weight: bold;
+}
+#tips {
+	font-size: 80%;
+}
+#virtueCount,
+#people {
+	text-align: right;
+}
+ul {
+	padding-left: 2em;
+}
+li {
+	margin-bottom: 0.5em;
+}
+#win {
+	color: red;
+	font-size: 120%;
+	text-align: center;
+}
+.winBig {
+	font-size: 200%;
+}
+i {
+	display: block;
+	width: 2em;
+	margin: 0 auto;
+	font-size: 300%;
+	font-style: normal;
+}
+.spin {
+    animation: spin 3s infinite linear;
+}
+@keyframes spin {
+    0%  { transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}   
+}

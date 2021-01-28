@@ -1,0 +1,169 @@
+
+body {
+	padding: 0; margin: 0;
+	font-family: 'Ubuntu Mono', sans-serif;
+	/* font-family: 'Orbitron', sans-serif; */
+	background-color: #111;
+	color: #eee;
+	font-size: 18px;
+	text-align: center;
+	background-image: url('../images/stars.png');
+	background-position: 0px 0px;
+}
+
+header {
+	width: 90%;
+	margin: 1em auto;
+	font-family: 'Orbitron', sans-serif;
+}
+	.title {
+		font-size: 200%;
+	}
+	.subtitle {
+		display: block;
+		font-size: 150%;
+		font-style: italic;
+		font-family: 'Ubuntu Mono', sans-serif;
+	}
+	.tm {
+		font-size: 60%;
+	}
+
+section {
+	clear: both;
+	width: 90%;
+	max-width: 50em;
+	margin: 1em auto;
+}
+	
+	
+.block {
+	float: left;
+	padding: 1em;
+	margin: 0.5em;
+	width: 7em;
+	background: rgba(50,50,50,0.5);
+	transition: all 0.1s ease-in-out;
+	-webkit-transition: all 0.1s ease-in-out;
+}
+.clickable {
+	cursor: pointer;
+}
+.block.clickable {
+	border-radius: 1em;
+	background-color: rgba(50,100,200,0.25);
+	box-shadow: 0 0.5em 0 rgba(50,50,50,0.25);
+}
+.block.clickable:hover {
+	/*width: 8em;
+	padding: 1em 2em;
+	margin: 1em 0;
+	*/
+	background-color: rgba(50,150,250,0.5);
+}
+.block.clickable:active {
+	background-color: rgba(50,150,250,0.75);
+	box-shadow: 0 0 1em rgba(255,255,255,0.25);
+}
+.block.upgrade {
+	background-color: rgba(50,200,100,0.25)
+}
+.moneyBlock {
+	width: auto;
+}
+
+.val {
+	color: #bbffff;
+	font-size: 100%;
+}
+.importantVal {
+	font-size: 180%;
+}
+
+.h {
+	font-family: 'Orbitron', sans-serif;
+}
+
+
+
+.planets {
+	display: none;
+	padding: 1em;
+	border-bottom: solid 1px rgba(255,255,255,0.2);
+	overflow: auto;
+}
+.planetList {
+	display: block;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+	.planetList > li {
+		display: block;
+		height: 8em;
+		width: 8em;
+		margin: 0.5em;
+		float: left;
+		border: solid 3px #444;
+		background-color: #000;
+		border-radius: 1em;
+		overflow: hidden;
+	}
+	.planetList > li.here {
+		border-color: #999;
+	}
+
+
+
+.galacticBox {
+	padding: 1em;
+	box-sizing: border-box;
+	opacity: 0.75;
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;	
+}
+	.galacticBox:hover {
+		opacity: 1.0;
+	}
+	.galacticBox .block {
+		background-color: rgba(100,80,120,0.5);
+	}
+.planetBox {
+	width: 90%;
+	margin: 1em auto;
+	clear: both;
+}
+
+.planet {
+	background-color: #6699ff;
+	clear: both;
+	box-sizing: border-box;
+	padding: 1em;
+	width: 5em;
+	height: 5em;
+	margin: 1em;
+	border-radius: 100%;
+	float: left;
+	color: #eee;
+	text-shadow: 1px 1px 0 #333, 0 0 0.5em rgba(0,0,0,0.5);
+	box-shadow: inset -1em -1em 1em rgba(0,0,0,0.5), 
+		inset 1em 1em 1em rgba(255,255,255,0.2);
+}
+.planet.unlock {
+	background: rgba(0,0,0,0.1);
+	width: 6em; height: 6em;
+	border: dotted 3px #666;
+	box-shadow: none;
+}
+
+
+@media (max-width: 30em) {
+	section {
+		width: 100%; 
+	}
+	.block {
+		padding: 0.5em;
+	}
+
+}
+
